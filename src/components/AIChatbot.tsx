@@ -30,9 +30,32 @@ export const AIChatbot: React.FC = () => {
     }
   }, [messages, isOpen, isTyping]);
 
-  const handleSend = (textToSend?: string) => {
-    const rawText = textToSend || inputValue;
-    const text = sanitizeInput(rawText);
+  const handleSendCustom = (userText: string, botText: string) => {
+    const userMsg: ChatMessage = {
+      id: Date.now().toString(),
+      sender: 'user',
+      text: userText,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    setIsTyping(true);
+
+    setTimeout(() => {
+      const botMsg: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        sender: 'bot',
+        text: botText,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      setMessages((prev) => [...prev, botMsg]);
+      setIsTyping(false);
+    }, 400);
+  };
+
+  const handleSend = () => {
+    const text = sanitizeInput(inputValue);
     if (!text.trim()) return;
 
     const userMsg: ChatMessage = {
@@ -43,13 +66,12 @@ export const AIChatbot: React.FC = () => {
     };
 
     setMessages((prev) => [...prev, userMsg]);
-    if (!textToSend) setInputValue('');
+    setInputValue('');
     setIsTyping(true);
 
     setTimeout(() => {
       const lower = text.toLowerCase();
       let matchedResponse = "I can answer questions about Koushik's technical skills, work experience, education, and contact details.";
-      let quickActions: { label: string; action: string }[] | undefined = undefined;
 
       for (const item of AI_CHATBOT_KNOWLEDGE) {
         if (item.keywords.some((k) => lower.includes(k))) {
@@ -62,20 +84,25 @@ export const AIChatbot: React.FC = () => {
         id: (Date.now() + 1).toString(),
         sender: 'bot',
         text: matchedResponse,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        quickActions
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
 
       setMessages((prev) => [...prev, botMsg]);
       setIsTyping(false);
-    }, 600);
+    }, 400);
   };
 
   const handleActionClick = (action: string) => {
     if (action === 'skills') {
-      handleSend("What are Koushik's technical skills?");
+      handleSendCustom(
+        "View Skills",
+        "Koushik is proficient in C, Java, and MySQL, and is actively learning HTML5, CSS3, and JavaScript for web development."
+      );
     } else if (action === 'experience') {
-      handleSend("Tell me about your work experience.");
+      handleSendCustom(
+        "Work Experience",
+        "Koushik is a Computer Science student (Graduation 2028) based in Hyderabad. He built and deployed sinaimedicaldiagnostics.in and is open for software development internships and junior roles."
+      );
     }
   };
 

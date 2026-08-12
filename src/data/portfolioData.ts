@@ -170,23 +170,27 @@ export const ACHIEVEMENTS_DATA: AchievementItem[] = [
 
 export const AI_CHATBOT_KNOWLEDGE = [
   {
+    keywords: ["skill", "skills", "stack", "technology", "technologies", "languages", "c", "java", "mysql"],
+    response: "Koushik is proficient in C, Java, and MySQL, and is actively learning HTML5, CSS3, and JavaScript for web development."
+  },
+  {
+    keywords: ["experience", "work", "job", "internship", "roles", "history", "career"],
+    response: "Koushik is a Computer Science student (Graduation 2028) based in Hyderabad. He built and deployed sinaimedicaldiagnostics.in and is open for software development internships and junior roles."
+  },
+  {
+    keywords: ["github", "repo", "project", "projects", "sinai"],
+    response: "Koushik's featured web project is Sinai Medical Diagnostics (sinaimedicaldiagnostics.in / github.com/gbvkoushik/sinaimedical), with 72 GitHub contributions in 2026."
+  },
+  {
+    keywords: ["education", "degree", "college", "university", "btech", "graduation"],
+    response: "Koushik is pursuing a Bachelor of Technology in Computer Science & Engineering (2024 - 2028) in Hyderabad, focusing on DSA, OOP, and DBMS."
+  },
+  {
+    keywords: ["contact", "linkedin", "socials", "instagram", "email"],
+    response: "You can connect with Koushik on LinkedIn (linkedin.com/in/g-b-v-koushik-237334391), GitHub (@gbvkoushik), or Instagram (@__gbvk__). You can also send a direct message via the Contact form below!"
+  },
+  {
     keywords: ["who", "about", "bio", "koushik", "name"],
-    response: "G.B.V.Koushik (@gbvkoushik) is a Computer Science student (Graduation 2028) in Hyderabad, proficient in C and Java, currently learning HTML/CSS and JavaScript."
-  },
-  {
-    keywords: ["github", "repo", "project", "sinai"],
-    response: "Koushik's featured project is sinaimedicaldiagnostics.in (github.com/gbvkoushik/sinaimedical), with 72 contributions on GitHub in 2026."
-  },
-  {
-    keywords: ["skill", "stack", "technology", "java", "c", "html", "css", "js", "mysql"],
-    response: "Koushik knows C, Java, MySQL, and is learning HTML, CSS, and JavaScript."
-  },
-  {
-    keywords: ["education", "degree", "college", "graduation"],
-    response: "Koushik is pursuing a B.Tech in CSE with expected graduation in 2028."
-  },
-  {
-    keywords: ["contact", "linkedin", "github", "instagram"],
-    response: "You can reach Koushik via LinkedIn (https://www.linkedin.com/in/g-b-v-koushik-237334391/), GitHub (@gbvkoushik), or Instagram (@__gbvk__)."
+    response: "G.B.V. Koushik is a Computer Science & Engineering student based in Hyderabad, skilled in C, Java, MySQL, and web technologies."
   }
 ];
