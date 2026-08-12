@@ -1,0 +1,1 @@
+function t(e){return e?e.replace(/<[^>]*>?/gm,"").replace(/javascript:/gi,"").replace(/[&<>"']/g,r=>{switch(r){case"&":return"&amp;";case"<":return"&lt;";case">":return"&gt;";case'"':return"&quot;";case"'":return"&#39;";default:return r}}):""}export{t as s};
